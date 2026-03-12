@@ -19,7 +19,13 @@ codex-quota takes a different approach: **on-demand, zero background CPU.** It l
 ## Install
 
 ```bash
-npm i -g github:kajiwara321/codex-quota
+npm i -g codex-quota
+```
+
+Or run directly without installing:
+
+```bash
+npx codex-quota
 ```
 
 Requires [Codex CLI](https://github.com/openai/codex) to be installed and authenticated (`codex login`).
