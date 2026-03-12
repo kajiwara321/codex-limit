@@ -1,10 +1,10 @@
 {
-  "name": "codex-quota",
+  "name": "codex-limit",
   "version": "1.0.0",
   "description": "Lightweight CLI to check OpenAI Codex quota usage via local RPC. Zero CPU overhead — no daemon, no polling.",
   "main": "index.js",
   "bin": {
-    "codex-quota": "cli.js"
+    "codex-limit": "cli.js"
   },
   "keywords": [
     "codex",
@@ -19,7 +19,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kajiwara321/codex-quota.git"
+    "url": "https://github.com/kajiwara321/codex-limit.git"
   },
   "engines": {
     "node": ">=18"

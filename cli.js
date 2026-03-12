@@ -4,12 +4,12 @@
 const { fetchQuota } = require("./index.js");
 
 const HELP = `
-codex-quota — Check your Codex CLI quota usage
+codex-limit — Check your Codex CLI quota usage
 
 Usage:
-  codex-quota              Pretty-print quota summary
-  codex-quota --json       Output raw JSON (for scripting)
-  codex-quota --help       Show this help
+  codex-limit              Pretty-print quota summary
+  codex-limit --json       Output raw JSON (for scripting)
+  codex-limit --help       Show this help
 
 Requires Codex CLI to be installed and authenticated (codex login).
 `;

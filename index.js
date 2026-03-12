@@ -1,5 +1,5 @@
 /**
- * codex-quota — Fetch Codex rate limits via app-server RPC.
+ * codex-limit — Fetch Codex rate limits via app-server RPC.
  *
  * Codex CLI exposes an experimental JSON-RPC interface through `codex app-server`.
  * This module launches a short-lived app-server process, sends `account/rateLimits/read`,
@@ -92,7 +92,7 @@ function fetchQuota({ timeout = 15000 } = {}) {
     (async () => {
       try {
         await rpc("initialize", {
-          clientInfo: { name: "codex-quota", version: "1.0.0" },
+          clientInfo: { name: "codex-limit", version: "1.0.0" },
         });
         const result = await rpc("account/rateLimits/read");
         clearTimeout(timer);

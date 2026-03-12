@@ -1,9 +1,9 @@
-# codex-quota
+# codex-limit
 
 Check your [OpenAI Codex CLI](https://github.com/openai/codex) quota usage from the command line.
 
 ```
-$ codex-quota
+$ codex-limit
 Codex Quota (plus)
 ────────────────────────────────────
 Weekly:  7% used  (resets in 6d15h)  2% over pace
@@ -14,18 +14,18 @@ Burst:   2% used  (resets in 3h52m)  on pace
 
 [CodexBar](https://github.com/steipete/CodexBar) is great but runs as a **persistent macOS menu bar app at ~6% CPU** — enough to prevent battery charge-hold on laptops.
 
-codex-quota takes a different approach: **on-demand, zero background CPU.** It launches a short-lived `codex app-server` process, fetches quota via JSON-RPC, and exits immediately.
+codex-limit takes a different approach: **on-demand, zero background CPU.** It launches a short-lived `codex app-server` process, fetches quota via JSON-RPC, and exits immediately.
 
 ## Install
 
 ```bash
-npm i -g codex-quota
+npm i -g codex-limit
 ```
 
 Or run directly without installing:
 
 ```bash
-npx codex-quota
+npx codex-limit
 ```
 
 Requires [Codex CLI](https://github.com/openai/codex) to be installed and authenticated (`codex login`).
@@ -34,10 +34,10 @@ Requires [Codex CLI](https://github.com/openai/codex) to be installed and authen
 
 ```bash
 # Pretty-print quota summary
-codex-quota
+codex-limit
 
 # JSON output (for scripting / statusline integration)
-codex-quota --json
+codex-limit --json
 ```
 
 ### JSON output
@@ -78,11 +78,11 @@ You can display Codex quota in your Claude Code statusline. Add to `~/.claude/se
 In your statusline script, cache the JSON output and read it:
 
 ```bash
-CACHE="$HOME/.cache/codex-quota/quota.json"
+CACHE="$HOME/.cache/codex-limit/quota.json"
 
 # Background refresh if cache is stale (>180s)
 if [ ! -f "$CACHE" ] || [ $(( $(date +%s) - $(stat -f%m "$CACHE") )) -gt 180 ]; then
-  codex-quota --json > "$CACHE.tmp" && mv "$CACHE.tmp" "$CACHE" &
+  codex-limit --json > "$CACHE.tmp" && mv "$CACHE.tmp" "$CACHE" &
 fi
 
 # Read from cache
@@ -92,7 +92,7 @@ codex_used=$(jq -r '.secondary.usedPercent' "$CACHE" 2>/dev/null)
 ### Programmatic usage
 
 ```javascript
-const { fetchQuota } = require("codex-quota");
+const { fetchQuota } = require("codex-limit");
 
 const quota = await fetchQuota();
 console.log(`Weekly: ${quota.secondary.usedPercent}% used`);
