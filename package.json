@@ -1,0 +1,33 @@
+{
+  "name": "codex-quota",
+  "version": "1.0.0",
+  "description": "Lightweight CLI to check OpenAI Codex quota usage via local RPC. Zero CPU overhead — no daemon, no polling.",
+  "main": "index.js",
+  "bin": {
+    "codex-quota": "cli.js"
+  },
+  "keywords": [
+    "codex",
+    "openai",
+    "quota",
+    "rate-limit",
+    "cli",
+    "statusline",
+    "claude-code"
+  ],
+  "author": "Kenji Kajiwara",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kajiwara321/codex-quota.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "cli.js",
+    "index.js",
+    "LICENSE",
+    "README.md"
+  ]
+}
